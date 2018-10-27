@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {AdminModule} from './admin/admin.module';
 import {HalloComponent} from './hallo/hallo.component';
 
 @NgModule({
@@ -14,7 +13,6 @@ import {HalloComponent} from './hallo/hallo.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

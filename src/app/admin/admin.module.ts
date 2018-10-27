@@ -10,7 +10,7 @@ import {TestComponent} from './test/test.component';
     AdminRoutingModule
   ],
   declarations: [
-    TestComponent,
+    TestComponent
   ]
 })
 export class AdminModule {

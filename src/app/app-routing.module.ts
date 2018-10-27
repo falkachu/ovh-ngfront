@@ -5,7 +5,7 @@ import {HalloComponent} from './hallo/hallo.component';
 const routes: Routes = [
     {
       path: 'hallo',
-      component: HalloComponent,
+      component: HalloComponent
     },
     {
       path: 'admin',
