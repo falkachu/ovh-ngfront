@@ -14,10 +14,22 @@ export class LoginComponent implements OnInit {
     password: '1234'
   };
 
+  srvres: Srvres = {
+    message: '',
+  };
+
   constructor(private http: HttpClient, private auth: AuthService) {
   }
 
   ngOnInit(): void {
-    console.log(this.auth.test().subscribe());
+    this.auth.test().subscribe(data => this.srvres = data);
+  }
+
+  submit(): void {
+    this.auth.login(this.login).subscribe();
+  }
+
+  unternehmen(): void{
+    this.auth.getUnternehmen().subscribe();
   }
 }

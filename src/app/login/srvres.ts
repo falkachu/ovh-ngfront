@@ -1,0 +1,3 @@
+class Srvres {
+  message: string;
+}

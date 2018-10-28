@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {map, tap} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -9,12 +9,13 @@ import {Observable} from 'rxjs';
 
 export class AuthService {
   private loginUrl = 'http://localhost/api/login';
+  private api = 'http://localhost/api';
 
   constructor(private http: HttpClient) {
   }
 
   public login(login: Login): Observable<any> {
-    return this.http.post<any>(this.loginUrl, login)
+    return this.http.post<any>(this.api + '/login', login)
       .pipe(
         map(result => {
           localStorage.setItem('token', result.token);
@@ -23,6 +24,10 @@ export class AuthService {
   }
 
   public test(): Observable<any> {
-    return console.log(this.http.get('http://localhost/api/test'));
+    return this.http.get(this.api + '/test');
+  }
+
+  public getUnternehmen(): Observable<any> {
+    return this.http.get(this.api + '/auth/tools/unternehmen');
   }
 }
